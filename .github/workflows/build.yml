@@ -29,6 +29,6 @@ jobs:
       working-directory: ./build
       run: cmake --build . --config Release
     
-    - name: Run tests (optional)
+    - name: Run It!
       working-directory: ./build
       run: ./curl_commits

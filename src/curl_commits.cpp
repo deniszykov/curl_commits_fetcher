@@ -21,7 +21,11 @@ std::string GetOneWeekAgoDate() {
     std::time_t now = std::time(nullptr);
 
     std::tm one_week_ago_tm;
+#ifdef __GNUC__
+    localtime_r(&now, &one_week_ago_tm);
+#else
     localtime_s(&one_week_ago_tm, &now);
+#endif
     one_week_ago_tm.tm_mday -= 7;
     std::mktime(&one_week_ago_tm);
     
